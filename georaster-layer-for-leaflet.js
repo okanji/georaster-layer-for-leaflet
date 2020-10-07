@@ -431,7 +431,7 @@ const GeoRasterLayer = L.GridLayer.extend({
       if (!proj4) {
         throw 'proj4 must be found in the global scope in order to load a raster that uses a UTM projection';
       }
-      this.projector = proj4(this.getProjectionString(this.projection), `EPSG:${EPSG4326}`);
+      this.projector = proj4.defs(this.getProjectionString(this.projection), `EPSG:${EPSG4326}`);
       if (this.debugLevel >= 1) console.log('projector set');
     }
   },
